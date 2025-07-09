@@ -1,13 +1,17 @@
 # Claude Needs You TTS
 
-This is a hook for Claude that will read the last summary from the transcript and use it to generate a TTS notification on macOS.
+This is a hook for Claude that will read the last summary from the transcript and use it to generate a TTS notification across platforms.
 
 ## Requirements
 
-- macOS
 - jq
+- One of the following TTS commands:
+  - `say` (macOS)
+  - `mac say` (OrbStack Linux containers)
+  - `espeak` (Linux)
+  - `spd-say` (Linux with speech-dispatcher)
 
-(If you're using orb u gotta change the script to use `mac say` instead of `say`)
+The script automatically detects which TTS command is available.
 
 ## Installation
 
