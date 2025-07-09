@@ -1,6 +1,14 @@
-# Claude Needs You TTS
+# Claude Hooks Collection
 
-This is a hook for Claude that will read the last summary from the transcript and use it to generate a TTS notification across platforms.
+This repository contains hooks for Claude that provide TTS notifications across platforms.
+
+## Scripts
+
+### claude-needs-you-tts.sh
+Reads the last summary from the transcript and announces completion.
+
+### notification.sh
+Speaks notification messages out loud using cross-platform TTS.
 
 ## Requirements
 
@@ -17,11 +25,13 @@ The script automatically detects which TTS command is available.
 
 ```bash
 chmod +x claude-needs-you-tts.sh
+chmod +x notification.sh
 ```
 
 ## Usage
 
-In `claude` CLI, do `/hooks` and and add a Stop hook:
+### claude-needs-you-tts.sh
+In `claude` CLI, do `/hooks` and add a Stop hook:
 
 ```json
 ~/full/path/to/claude-needs-you-tts.sh
@@ -39,6 +49,33 @@ Or add this to settings.json in ~/.claude/settings.json
           {
             "type": "command",
             "command": "~/dev/tools/hooks/claude-needs-you-tts.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### notification.sh
+In `claude` CLI, do `/hooks` and add a Notification hook:
+
+```json
+~/full/path/to/notification.sh
+```
+
+Or add this to settings.json in ~/.claude/settings.json
+
+```json
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/dev/tools/hooks/notification.sh"
           }
         ]
       }
